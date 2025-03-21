@@ -49,6 +49,20 @@ namespace E_commerce.Controllers
             return products;
         }
 
+        [HttpGet("Discounted")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetDiscountedProducts()
+        {
+            var allProducts = await _context.Products.ToListAsync();
+
+            var discountedProducts = allProducts
+                .Where(p => p.IsDiscounted)
+                .Take(5)
+                .ToList();
+
+            return discountedProducts;
+        }
+
+
         // POST: api/Products
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
