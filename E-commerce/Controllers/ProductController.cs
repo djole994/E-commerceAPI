@@ -56,7 +56,7 @@ namespace E_commerce.Controllers
 
             var discountedProducts = allProducts
                 .Where(p => p.IsDiscounted)
-                .Take(5)
+                .Take(10)
                 .ToList();
 
             return discountedProducts;
