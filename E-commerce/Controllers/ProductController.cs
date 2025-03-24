@@ -62,6 +62,17 @@ namespace E_commerce.Controllers
             return discountedProducts;
         }
 
+        [HttpGet("Search")]
+        public async Task<IActionResult> Search([FromQuery] string? term)
+        {
+            var query = _context.Products.AsQueryable();
+            if (!string.IsNullOrEmpty(term))
+            {
+                query = query.Where(p => p.Name.Contains(term) || p.Description.Contains(term));
+            }
+            return Ok(await query.ToListAsync());
+        }
+
 
         // POST: api/Products
         [HttpPost]

@@ -15,6 +15,11 @@ namespace E_commerce.Models
         public string Description { get; set; } = string.Empty;
 
         [Required]
+        [MaxLength(100)]
+        public string Brand { get; set; } = string.Empty;
+
+
+        [Required]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }    // Originalna cijena, postavljena na dvije decimale, RAZMISLITI O 4 decimale
 
