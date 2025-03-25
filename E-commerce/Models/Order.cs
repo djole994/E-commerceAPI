@@ -6,8 +6,16 @@ namespace E_commerce.Models
     public class Order
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; } = null!;
+        public int? CustomerId { get; set; }
+
+        [Required]
+        public string CustomerName { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        public string PaymentMethod { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
