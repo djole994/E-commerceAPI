@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_commerce.Models
 {
-    public class EcommerceContext : DbContext
+    public class EcommerceContext : IdentityDbContext<ApplicationUser>
     {
         public EcommerceContext(DbContextOptions<EcommerceContext> options) : base(options) { }
 
